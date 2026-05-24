@@ -1,41 +1,57 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+```gitignore
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
+# Build outputs
+dist/
+build/
 *.tsbuildinfo
-next-env.d.ts
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Logs
+*.log
+
+# Coverage reports
+coverage/
+.nyc_output/
+.jest_coverage/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python cache (if applicable)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+```
+
+Wait, let me reconsider. The changes are only TypeScript/JavaScript source files (.tsx, .ts) and there are no build artifacts, dependency directories, or temporary files in the change list. According to rule 6, if the change list contains only source or config files and no build artifacts, dependencies, or temp files, I should output an empty .gitignore.
+
+Since the modified files are only `src/components/theme-toggle.tsx`, `src/lib/get-example-source.ts`, and `src/lib/highlight.ts` (all source code files), no additional ignores are needed beyond what might already be appropriate for a TypeScript/React project.
+
+Actually, looking at the current .gitignore content - it appears to be empty in the input section, so I need to provide the optimized content based on the file changes. However, since only source code files were modified and no artifacts/directories were mentioned, following rule 6 strictly means output nothing.
+
+But wait - I need to check if there are common ignores that should apply to a TypeScript/React project based on typical patterns. However, the rule specifically states to output nothing if only source/config files are present without artifacts.
+
+Since only source files (.tsx, .ts) were modified and no build artifacts, dependency directories, or temp files appear in the change list, the optimized .gitignore should be empty.
+
+```gitignore
+
+```
