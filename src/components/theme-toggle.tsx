@@ -1,5 +1,3 @@
-"use client";
-
 import { useCallback, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
@@ -12,6 +10,9 @@ import { Kbd } from "./ui/kbd";
 import { Moon, Sun } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
 
+const MOBILE_BREAKPOINT = 768;
+const THEME_KEYBOARD_SHORTCUT = "t";
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -21,7 +22,6 @@ export function ThemeToggle() {
   }, [resolvedTheme, setTheme]);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -36,7 +36,8 @@ export function ThemeToggle() {
         return;
       }
 
-      if ((e.key === "t" || e.key === "T") && !e.metaKey && !e.ctrlKey) {
+      if ((e.key === THEME_KEYBOARD_SHORTCUT || e.key === THEME_KEYBOARD_SHORTCUT.toUpperCase()) && 
+          !e.metaKey && !e.ctrlKey) {
         e.preventDefault();
         toggleTheme();
       }
